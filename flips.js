@@ -1,9 +1,15 @@
-import { coinFlips, countFlips } from "./modules/coin.mjs";
-import minimist from "minimist";
-
-const args = minimist(process.argv.slice(2))
-if (args.number == null) 
-    args.number = 1;
-let record = coinFlips(args.number);
-console.log(record);
-console.log(countFlips(record));
+import {coinFlips, countFlips} from "./modules/coin.mjs";
+var args = process.argv.slice(2);
+let coins = coinFlips(args[2]);
+let count = countFlips(coins);
+if (args[2] == null){
+    coins = coinFlips(1);
+    if (coins == 'heads'){
+        count = {heads:1};
+    }
+    else{
+        count = {tails:1};
+    }
+}
+console.info(coins);
+console.log(count);
