@@ -1,7 +1,7 @@
 import { coinFlips, countFlips } from "./modules/coin.mjs";
 import minimist from "minimist";
 
-let args = min(process.argv.slice(2))
+let args = minimist(process.argv.slice(2))
 
 if (args['number']) {
     let results = coinFlips(args['number']);
